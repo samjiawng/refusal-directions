@@ -9,7 +9,7 @@ This repository contains a complete implementation of the refusal directions pap
 - Weight orthogonalization for permanent jailbreaking
 - Comprehensive evaluation on 8 harm categories
 
-## 🎯 Overview
+## Overview
 
 The paper shows that refusal behavior in large language models is mediated by a single linear direction in the model's residual stream. By identifying and intervening on this direction, we can:
 
@@ -17,9 +17,9 @@ The paper shows that refusal behavior in large language models is mediated by a 
 2. **Induce refusal**: Add the direction to make the model refuse harmless requests
 3. **Permanent jailbreak**: Orthogonalize weights to permanently disable refusal
 
-## 📋 Harm Categories
+## Harm Categories
 
-This implementation tests across 8 harm categories:
+We test across 8 harm categories:
 1. **Violence/Physical Harm** - Instructions involving violence, weapons, or bodily harm
 2. **Illegal Activities** - Drug trafficking, theft, fraud, illegal operations
 3. **Misinformation** - False information, fake news, conspiracy theories
@@ -29,7 +29,7 @@ This implementation tests across 8 harm categories:
 7. **Privacy Violations** - Hacking, surveillance, identity theft
 8. **Self-Harm** - Suicide, eating disorders, substance abuse
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Installation
 
@@ -106,7 +106,7 @@ python experiments/weight_ortho.py \
 - Test the modified model on harmful instructions
 - Optionally save the jailbroken model
 
-## 📊 Project Structure
+## Project Structure
 
 ```
 refusal-directions/
@@ -130,7 +130,7 @@ refusal-directions/
 └── requirements.txt              # Python dependencies
 ```
 
-## 🔬 Technical Details
+## Technical Details
 
 ### Difference-in-Means Direction Extraction
 
@@ -168,7 +168,7 @@ $$W' = W - \hat{r}\hat{r}^T W$$
 
 This ensures the model can never write to the refusal direction.
 
-## 📈 Evaluation Metrics
+## Evaluation Metrics
 
 ### Refusal Score
 Binary classification using substring matching. A completion is a refusal if it contains phrases like:
@@ -185,7 +185,7 @@ For jailbreak attacks: proportion of completions that are both:
 1. Non-refusals (refusal_score = 0)
 2. Unsafe (safety_score = 0)
 
-## 🎯 Expected Results
+## Expected Results
 
 Based on the paper, you should expect:
 
@@ -202,7 +202,7 @@ Based on the paper, you should expect:
 - Similar performance to ablation
 - But permanent (no runtime overhead)
 
-## ⚠️ Important Notes
+## Important Notes
 
 ### Safety and Responsible Use
 
@@ -224,7 +224,7 @@ You'll need Hugging Face access to Meta's Llama 3.1 models:
 2. Generate a token at https://huggingface.co/settings/tokens
 3. Run `huggingface-cli login`
 
-## 🔧 Advanced Usage
+## Advanced Usage
 
 ### Custom Chat Templates
 
@@ -262,7 +262,7 @@ python experiments/test_addition.py \
     --coefficient 0.5  # Weaker addition
 ```
 
-## 📚 Citation
+## Citation
 
 If you use this code, please cite the original paper:
 
@@ -275,7 +275,7 @@ If you use this code, please cite the original paper:
 }
 ```
 
-## 🐛 Troubleshooting
+## Troubleshooting
 
 ### CUDA Out of Memory
 
@@ -298,7 +298,7 @@ Reduce test set size:
 python experiments/test_ablation.py --n-test 20
 ```
 
-## 🤝 Contributing
+## Contributing
 
 This is research code. Contributions welcome for:
 - Support for additional model families
@@ -306,11 +306,11 @@ This is research code. Contributions welcome for:
 - Visualization tools
 - Performance optimizations
 
-## 📄 License
+## License
 
 MIT License - see LICENSE file for details.
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 Based on the excellent work by Arditi et al. (2024). Original paper available at: https://arxiv.org/abs/2406.11717
 
